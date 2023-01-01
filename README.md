@@ -5,7 +5,7 @@ An awesome game developed for Home Assistant, where HA can guess any number of y
 
 You need to create 10 helpers, 3 sensors, 2 Scripts and 1 Automation.
 
-Step 1: In your Home Assistant config folder, create a new folder named www (if you havn't already) and paste all eight pictures of the number cards in it.
+Step 1: Download the ZIP. In your Home Assistant config folder, create a new folder named www (if you havn't already) and paste all eight pictures of the number cards in it.
 
 Step 2: Go to Settings/Devices&Services/Helpers and create eight different toggle helpers (Card A to Card H), Another toggle helper with name (Start) and another with name (Show my Number).
 
@@ -258,7 +258,7 @@ cards:
 ```
 *Remember to replace 10.0.0.150 with your own HA IP in all the eight cards configuration in above code.
 
-Everything is well explained on "vccground" YouTube Channel https://www.youtube.com/@the_vccground , Please refer to Video #50 for deep understanding.
+Thats it !!! Everything is well explained on "vccground" YouTube Channel https://www.youtube.com/@the_vccground , Please refer to Video #50 for deep understanding.
 
 Join "vccground" telegram channel https://t.me/vccground for any discussion on all my project.
 
