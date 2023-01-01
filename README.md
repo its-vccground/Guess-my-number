@@ -84,7 +84,7 @@ sequence:
         - input_boolean.card_f
         - input_boolean.card_g
         - input_boolean.card_h
-        - input_boolean.guess_my_number
+        - input_boolean.show_my_number
 mode: single
 icon: mdi:cards
 ```
