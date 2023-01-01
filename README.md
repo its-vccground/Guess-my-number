@@ -258,7 +258,9 @@ cards:
 ```
 *Remember to replace 10.0.0.150 with your own HA IP in all the eight cards configuration in above code.
 
-Thats it !!! Everything is well explained on "vccground" YouTube Channel https://www.youtube.com/@the_vccground , Please refer to Video #50 for deep understanding.
+## Bingo!!! Thats it.
+
+Everything is well explained on "vccground" YouTube Channel https://www.youtube.com/@the_vccground , Please refer to Video #50 for deep understanding.
 
 Join "vccground" telegram channel https://t.me/vccground for any discussion on all my project.
 
