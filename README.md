@@ -123,112 +123,142 @@ action:
 mode: single
 ```
 
-With these six steps, the Backend setup is completed. Now we need to create a dashboard for the frontend. 
+With these six steps, the Backend setup is completed. Now we need to create a dashboard for the frontend.
+
 For that, in your lovelace dashboard page, Click 3 dots on the upper right corner and select 'Edit Dashboard'. Click Add Card at the bottom, select any card here and select, Show code editor, at the bottom. Delete any existing content here. Copy the following code and paste the same in the yaml editor and click save to save the New Card.
 ```
-conditions:
-  - entity: input_boolean.start
-    state: 'on'
-type: conditional
-card:
-  type: vertical-stack
-  title: Tap the cards with your number...
-  cards:
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_a
-      image: http://10.0.0.150:8123/local/A.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_b
-      image: http://10.0.0.150:8123/local/B.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_c
-      image: http://10.0.0.150:8123/local/C.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_d
-      image: http://10.0.0.150:8123/local/D.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_e
-      image: http://10.0.0.150:8123/local/E.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_f
-      image: http://10.0.0.150:8123/local/F.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_g
-      image: http://10.0.0.150:8123/local/G.jpg
-      tap_action:
-        action: toggle
-    - show_state: true
-      show_name: true
-      camera_view: auto
-      type: picture-entity
-      entity: input_boolean.card_h
-      image: http://10.0.0.150:8123/local/H.jpg
-      tap_action:
-        action: toggle
-    - type: horizontal-stack
+type: vertical-stack
+title: Play Guess My Number...
+cards:
+  - type: horizontal-stack
+    cards:
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: call-service
+          service: input_boolean.toggle
+          target:
+            entity_id: input_boolean.start
+          data: {}
+        entity: input_boolean.start
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: call-service
+          service: script.reset_cards
+          target: {}
+          data: {}
+        entity: script.reset_cards
+  - type: conditional
+    conditions:
+      - entity: input_boolean.start
+        state: 'on'
+    card:
+      type: vertical-stack
+      title: Tap the cards with your number...
       cards:
-        - show_name: true
-          show_icon: true
-          type: button
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_a
+          image: http://10.0.0.150:8123/local/A.jpg
           tap_action:
-            action: call-service
-            service: input_boolean.toggle
-            target:
-              entity_id: input_boolean.show_my_number
-          entity: input_boolean.show_my_number
-        - show_name: true
-          show_icon: true
-          type: button
-          entity: script.announce_my_number
-          show_state: false
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_b
+          image: http://10.0.0.150:8123/local/B.jpg
           tap_action:
-            action: call-service
-            service: script.announce_my_number
-            service_data: {}
-            target: {}
-    - type: conditional
-      conditions:
-        - entity: input_boolean.show_my_number
-          state: 'on'
-      card:
-        type: vertical-stack
-        cards:
-          - type: entity
-            entity: sensor.final_number
-            name: Your Number
-```
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_c
+          image: http://10.0.0.150:8123/local/C.jpg
+          tap_action:
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_d
+          image: http://10.0.0.150:8123/local/D.jpg
+          tap_action:
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_e
+          image: http://10.0.0.150:8123/local/E.jpg
+          tap_action:
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_f
+          image: http://10.0.0.150:8123/local/F.jpg
+          tap_action:
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_g
+          image: http://10.0.0.150:8123/local/G.jpg
+          tap_action:
+            action: toggle
+        - show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: input_boolean.card_h
+          image: http://10.0.0.150:8123/local/H.jpg
+          tap_action:
+            action: toggle
+        - type: horizontal-stack
+          cards:
+            - show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: call-service
+                service: input_boolean.toggle
+                target:
+                  entity_id: input_boolean.show_my_number
+              entity: input_boolean.show_my_number
+            - show_name: true
+              show_icon: true
+              type: button
+              entity: script.announce_my_number
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.announce_my_number
+                service_data: {}
+                target: {}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_my_number
+              state: 'on'
+          card:
+            type: vertical-stack
+            cards:
+              - type: entity
+                entity: sensor.final_number
+                name: Your Number
 
+```
+*Remember to replace 10.0.0.150 with your own HA IP in all the eight cards configuration in above code.
+
+Everything is well explained on "vccground" YouTube Channel https://www.youtube.com/@the_vccground , Please refer to Video #50 for deep understanding.
+
+Join "vccground" telegram channel https://t.me/vccground for any discussion on all my project.
 
